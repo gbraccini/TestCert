@@ -1,5 +1,6 @@
 ﻿/*
  * Florence 17 novembre 2018. Engineered by Gianluca Braccini <ITIS A.Meucci>
+ System.IO.File.WriteAllBytes(@"C:\MyFile.bin", ProjectNamespace.Properties.Resources.MyFile);
  */
 
 using System;

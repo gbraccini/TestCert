@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
+using System.Collections;
+
+namespace TestCert
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Boolean trovato = false;
+            //Opens the local machine  certificates store.
+            X509Store store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+            store.Open(OpenFlags.MaxAllowed);
+            X509Certificate2 certificate = new X509Certificate2();
+
+            //Create certificates from certificate files.
+            //You must put in a valid path to three certificates in the following constructors.
+            X509Certificate2 certificate1 = new X509Certificate2(".\\firebird.cer");
+          
+                       
+
+            //Add certificates to the store.
+            store.Add(certificate1);
+            if (!store.Certificates.Contains(certificate1))
+            {
+                store.Add(certificate1);
+            }
+/*
+            ArrayList lista = new ArrayList();
+
+
+            foreach (X509Certificate2 x509 in store.Certificates)
+            {
+                Console.WriteLine("certificate name: {0}", x509.Subject);
+                Console.WriteLine("Simple Name: {0}{1}", x509.GetNameInfo(X509NameType.SimpleName, true), Environment.NewLine);
+                lista.Add(x509.GetNameInfo(X509NameType.SimpleName, true) + " - " + x509.FriendlyName);
+                if ((x509.GetNameInfo(X509NameType.SimpleName, true) + " - " + x509.FriendlyName).ToUpper().Contains("FIREBIRD"))
+                {
+                    trovato = true;
+                }
+
+            }
+            lista.Sort();
+
+            if (trovato)
+                button_add_certificate.Enabled = false;*/
+
+            if (!store.Certificates.Contains(certificate1))
+            {
+                string message = "Certificate has not been added . Cancel this operation?";
+                string caption = "Error Detected";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Displays the MessageBox.
+
+                result = MessageBox.Show(message, caption, buttons);
+            }
+
+            store.Close();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            Boolean trovato = false;
+
+            // var store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+
+
+            var store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+            store.Open(OpenFlags.ReadOnly);
+
+            
+            ArrayList lista  = new ArrayList();
+            
+            
+            foreach (X509Certificate2 x509 in store.Certificates)
+            {
+                Console.WriteLine("certificate name: {0}", x509.Subject);
+                Console.WriteLine("Simple Name: {0}{1}", x509.GetNameInfo(X509NameType.SimpleName, true), Environment.NewLine);
+                lista.Add(x509.GetNameInfo(X509NameType.SimpleName, true) + " - " +                    x509.FriendlyName);
+                if ((x509.GetNameInfo(X509NameType.SimpleName, true) + " - " + x509.FriendlyName).ToUpper().Contains("CERT"))
+                {
+                    trovato = true;
+                }
+
+            }
+            lista.Sort();
+
+            listBoxCert.DataSource = lista;
+
+            if (trovato)
+            {
+                button_add_certificate.Enabled = false;
+              
+                int index = listBoxCert.FindString("cert");
+                // Determine if a valid index is returned. Select the item if it is valid.
+                if (index != -1)
+                    listBoxCert.SetSelected(index, true);
+                else MessageBox.Show("The search string did not match any items in the ListBox");
+
+            }
+            
+            
+
+            store.Close(); // close each store
+        }
+    }
+}

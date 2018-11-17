@@ -1,0 +1,9 @@
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\bin\Debug\TestCert.exe.config
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\bin\Debug\TestCert.exe
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\bin\Debug\TestCert.pdb
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.csprojResolveAssemblyReference.cache
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.Form1.resources
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.Properties.Resources.resources
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.csproj.GenerateResource.Cache
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.exe
+c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.pdb

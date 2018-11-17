@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * Florence 17 novembre 2018. Engineered by Gianluca Braccini <ITIS A.Meucci>
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

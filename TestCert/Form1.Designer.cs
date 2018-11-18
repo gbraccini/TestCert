@@ -58,6 +58,7 @@
             this.Controls.Add(this.listBoxCert);
             this.Controls.Add(this.button_add_certificate);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "I.T.I.S.  Antonio Meucci   < engineered by Gianluca Braccini  november 2018>";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

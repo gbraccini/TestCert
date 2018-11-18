@@ -10,9 +10,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
-using System;
+
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.IO;
@@ -85,49 +85,17 @@ namespace TestCert
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            Boolean trovato = false;
-
-            // var store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
-
-
-            var store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
-            store.Open(OpenFlags.ReadOnly);
-
-            
-            ArrayList lista  = new ArrayList();
-            
-            
-            foreach (X509Certificate2 x509 in store.Certificates)
-            {
-                Console.WriteLine("certificate name: {0}", x509.Subject);
-                Console.WriteLine("Simple Name: {0}{1}", x509.GetNameInfo(X509NameType.SimpleName, true), Environment.NewLine);
-                lista.Add(x509.GetNameInfo(X509NameType.SimpleName, true) + " - " +                    x509.FriendlyName);
-                if ((x509.GetNameInfo(X509NameType.SimpleName, true) + " - " + x509.FriendlyName).ToUpper().Contains("CERT"))
-                {
-                    trovato = true;
-                }
-
-            }
-            lista.Sort();
-
-            listBoxCert.DataSource = lista;
-
-            if (trovato)
+            ListaCertificati lista = ListaCertificati.Instance;
+            listBoxCert.DataSource = lista.lista;
+            int index = listBoxCert.FindString("cert");
+            // Determine if a valid index is returned. Select the item if it is valid.
+            if (index != -1)
             {
                 button_add_certificate.Enabled = false;
-              
-                int index = listBoxCert.FindString("cert");
-                // Determine if a valid index is returned. Select the item if it is valid.
-                if (index != -1)
-                    listBoxCert.SetSelected(index, true);
-                else MessageBox.Show("The search string did not match any items in the ListBox");
-
+                listBoxCert.SetSelected(index, true);
             }
-            
-            
-
-            store.Close(); // close each store
+            else
+                button_add_certificate.Enabled = true; 
         }
     }
 }

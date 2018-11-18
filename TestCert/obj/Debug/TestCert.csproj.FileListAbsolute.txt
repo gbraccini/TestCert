@@ -7,3 +7,5 @@ c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\De
 c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.csproj.GenerateResource.Cache
 c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.exe
 c:\users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.pdb
+C:\Users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.Resource1.resources
+C:\Users\studente\documents\visual studio 2015\Projects\TestCert\TestCert\obj\Debug\TestCert.splash.resources

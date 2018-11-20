@@ -59,5 +59,15 @@ namespace TestCert.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Byte[].
+        /// </summary>
+        internal static byte[] firebird {
+            get {
+                object obj = ResourceManager.GetObject("firebird", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

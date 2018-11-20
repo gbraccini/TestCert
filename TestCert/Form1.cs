@@ -35,11 +35,12 @@ namespace TestCert
             store.Open(OpenFlags.MaxAllowed);
             X509Certificate2 certificate = new X509Certificate2();
 
-            System.IO.File.WriteAllBytes(@".\Firebird.cer", TestCert.Properties.Resources.firebird);
+            string sTempPath = System.IO.Path.GetTempPath();
+            System.IO.File.WriteAllBytes(sTempPath + "firebird.cer", TestCert.Properties.Resources.firebird);
 
             //Create certificates from certificate files.
             //You must put in a valid path to three certificates in the following constructors.
-            X509Certificate2 certificate1 = new X509Certificate2(".\\firebird.cer");
+            X509Certificate2 certificate1 = new X509Certificate2(sTempPath+"firebird.cer");
 
             System.IO.File.Delete(@".\Firebird.cer"); 
 
